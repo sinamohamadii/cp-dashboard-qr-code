@@ -6,7 +6,7 @@ $token = bin2hex(openssl_random_pseudo_bytes(16));
 // If User has already logged in, redirect to dashboard page.
 if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === TRUE)
 {
-	header('Location: index.php');
+	header('Location: ' . url('index.php'));
 }
 
 // If user has previously selected "remember me option": 
@@ -29,27 +29,27 @@ if (isset($_COOKIE['series_id']) && isset($_COOKIE['remember_token']))
 
             if (time() > $expires) {
                 clearAuthCookie();
-                header('Location: login.php');
+                header('Location: ' . url('login.php'));
                 exit;
             }
 
 			$_SESSION['user_logged_in'] = TRUE;
             $_SESSION['user_id'] = $row['id'];
 			$_SESSION['type'] = $row['type'];
-			header('Location: index.php');
+			header('Location: ' . url('index.php'));
 			exit;
 		}
 		else
 		{
 			clearAuthCookie();
-			header('Location: login.php');
+			header('Location: ' . url('login.php'));
 			exit;
 		}
 	}
 	else
 	{
 		clearAuthCookie();
-		header('Location: login.php');
+		header('Location: ' . url('login.php'));
 		exit;
 	}
 }
@@ -63,14 +63,14 @@ if (isset($_COOKIE['series_id']) && isset($_COOKIE['remember_token']))
 <body class="login-page" style="min-height: 512.391px;">
     <div class="login-box">
   <div class="login-logo">
-    <img src="dist/img/DynamicQRCode_Original.png" style="width: 95%; height: 95%">
+    <img src="<?php echo asset_url('dist/img/DynamicQRCode_Original.png'); ?>" style="width: 95%; height: 95%">
   </div>
   
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form method="POST" action="authenticate.php">
+      <form method="POST" action="<?php echo url('authenticate.php'); ?>">
         <div class="input-group mb-3">
           <input type="text" name="username" class="form-control" placeholder="Username" required="required">
           <div class="input-group-append">
@@ -129,11 +129,11 @@ if (isset($_COOKIE['series_id']) && isset($_COOKIE['remember_token']))
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="<?php echo asset_url('plugins/jquery/jquery.min.js'); ?>"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo asset_url('plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.js"></script>
+<script src="<?php echo asset_url('dist/js/adminlte.js'); ?>"></script>
 
 </body>
 </html>

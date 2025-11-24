@@ -1,4 +1,4 @@
-<form class="form" action="static_qrcode.php?type=event" method="post" id="static_form" enctype="multipart/form-data">
+<form class="form" action="<?php echo url('static_qrcode.php?type=event'); ?>" method="post" id="static_form" enctype="multipart/form-data">
     <?php include BASE_PATH.'/forms/qrcode_options.php'; ?>
 <!-- Input forms -->
 <div class="col-sm-4">
@@ -81,4 +81,4 @@
                 
 </form>
 
-<script src="plugins/moment/moment.min.js"></script>
+<script src="<?php echo asset_url('plugins/moment/moment.min.js'); ?>"></script>

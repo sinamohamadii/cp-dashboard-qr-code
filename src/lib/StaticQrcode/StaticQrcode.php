@@ -460,7 +460,7 @@ class StaticQrcode {
      */
     private function failure($message) {
         $_SESSION['failure'] = $message;
-        header('Location: static_qrcodes.php');
+        header('Location: ' . url('static_qrcodes.php'));
     	exit();
     }
     
@@ -469,7 +469,7 @@ class StaticQrcode {
      */
     private function success($message) {
         $_SESSION['success'] = $message;
-        header('Location: static_qrcodes.php');
+        header('Location: ' . url('static_qrcodes.php'));
     	exit();
     }
     
@@ -478,7 +478,7 @@ class StaticQrcode {
      */
     private function info($message) {
         $_SESSION['info'] = $message;
-        header('Location: static_qrcodes.php');
+        header('Location: ' . url('static_qrcodes.php'));
     	exit();
     }
     

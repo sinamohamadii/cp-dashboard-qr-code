@@ -2,7 +2,7 @@
     <div class="col-12" id="bulk-action-div" style="display: none;">
         <div id="err-msg"></div>
         <div class="bulk-action-wrapper">
-            <form id="bulk-action" action="bulk_action.php" method="POST">
+            <form id="bulk-action" action="<?php echo url('bulk_action.php'); ?>" method="POST">
                 <div class="col-sm-12 mb-2" style="margin-left: 10px">
                     <div class="row">
                         <div class="col-5 col-md-2">
@@ -60,12 +60,12 @@
                 <td><?php echo htmlspecialchars($row['type']); ?></td>
                 <td><?php echo htmlspecialchars_decode($row['content']); ?></td>
                 <td>
-                    <?php echo '<img src="'.SAVED_QRCODE_FOLDER.htmlspecialchars($row['qrcode']).'" width="100" height="100">'; ?>
+                    <?php echo '<img src="'.SAVED_QRCODE_URL.htmlspecialchars($row['qrcode']).'" width="100" height="100">'; ?>
                 </td>
                 <td>
                     
                     <!-- EDIT -->
-                    <a href="static_qrcode.php?edit=true&id=<?php echo $row['id']; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                    <a href="<?php echo url('static_qrcode.php?edit=true&id=' . $row['id']); ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                     
                     <!-- DELETE -->
                     <a
@@ -76,7 +76,7 @@
                     ><i class="fas fa-trash"></i></a>
 
                     <!-- DOWNLOAD -->
-                    <a href="<?php echo SAVED_QRCODE_FOLDER.htmlspecialchars($row['qrcode']); ?>" class="btn btn-primary" download><i class="fa fa-download"></i></a>
+                    <a href="<?php echo SAVED_QRCODE_URL.htmlspecialchars($row['qrcode']); ?>" class="btn btn-primary" download><i class="fa fa-download"></i></a>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -85,7 +85,7 @@
    </div><!-- /.Card body -->
    
    <div class="card-footer clearfix">
-       <?php echo paginationLinks($page, $total_pages, 'static_qrcodes.php'); ?>
+       <?php echo paginationLinks($page, $total_pages, url('static_qrcodes.php')); ?>
        </div><!-- /.Card footer -->
        
         </div><!-- /.Card -->
@@ -95,7 +95,7 @@
 <!-- Delete Confirmation Modal -->
 <div class="modal fade" id="delete-modal" role="dialog">
     <div class="modal-dialog">
-        <form action="static_qrcode.php" method="POST">
+        <form action="<?php echo url('static_qrcode.php'); ?>" method="POST">
             <!-- Modal content -->
 
             <div class="modal-content">

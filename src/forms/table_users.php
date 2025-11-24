@@ -19,7 +19,7 @@
                 <td><?php echo htmlspecialchars($row['type']); ?></td>
                 <td>
                     <!-- EDIT -->
-                    <a href="user.php?edit=true&id=<?php echo $row['id']; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                    <a href="<?php echo url('user.php?edit=true&id=' . $row['id']); ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                     
                     <!-- DELETE -->
                     <a
@@ -36,7 +36,7 @@
    </div><!-- /.Card body -->
    
    <div class="card-footer clearfix">
-       <?php echo paginationLinks($page, $total_pages, 'users.php'); ?>
+       <?php echo paginationLinks($page, $total_pages, url('users.php')); ?>
        </div><!-- /.Card footer -->
        
         </div><!-- /.Card -->
@@ -46,7 +46,7 @@
 <!-- Delete Confirmation Modal -->
 <div class="modal fade" id="delete-modal" role="dialog">
     <div class="modal-dialog">
-        <form action="user.php" method="POST">
+        <form action="<?php echo url('user.php'); ?>" method="POST">
             <!-- Modal content -->
 
             <div class="modal-content">

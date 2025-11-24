@@ -53,7 +53,7 @@ $total_pages = $db->totalPages;
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item">
-                  <a href="static_qrcode.php" class="btn btn-success"><i class="fa fa-plus"></i> Add new</a>
+                  <a href="<?php echo url('static_qrcode.php'); ?>" class="btn btn-success"><i class="fa fa-plus"></i> Add new</a>
                 </li>
             </ol>
           </div><!-- /.col -->

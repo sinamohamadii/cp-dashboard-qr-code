@@ -16,3 +16,15 @@ define('DATABASE_CHARSET', getenv('DATABASE_CHARSET') ?: 'utf8');
 define('TYPE', getenv('TYPE') ?: 'local');
 define('BASE_URL', getenv('BASE_URL') ?: 'http://localhost');
 define('QRCODE_GENERATOR', getenv('QRCODE_GENERATOR') ?: 'external-api.qrserver.com'); // opties: external-api.qrserver.com of internal-chillerlan.qrcode
+
+$appBasePath = getenv('APP_BASE_PATH');
+if ($appBasePath === false || $appBasePath === null || $appBasePath === '') {
+    $appBasePath = '/';
+}
+$appBasePath = '/' . ltrim($appBasePath, '/');
+$appBasePath = rtrim($appBasePath, '/');
+if ($appBasePath === '') {
+    $appBasePath = '/';
+}
+
+define('APP_BASE_PATH', $appBasePath);

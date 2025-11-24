@@ -50,19 +50,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 				$db->update('users', $update_remember);
 			}
 			// Authentication successfull redirect user
-			header('Location: index.php');
+			header('Location: ' . url('index.php'));
 		}
         else
         {
 			$_SESSION['login_failure'] = 'Invalid username or password';
-			header('Location: login.php');
+			header('Location: ' . url('login.php'));
 		}
 		exit;
 	}
     else
     {
 		$_SESSION['login_failure'] = 'Invalid username or password';
-		header('Location: login.php');
+		header('Location: ' . url('login.php'));
 		exit;
 	}
 }

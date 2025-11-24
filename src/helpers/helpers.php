@@ -117,6 +117,42 @@ function paginationLinks($current_page, $total_pages, $base_url) {
 	return $html;
 }
 
+function app_base_path() {
+	return APP_BASE_PATH;
+}
+
+function base_href() {
+	return (APP_BASE_PATH === '/') ? '/' : APP_BASE_PATH . '/';
+}
+
+function url($path = '') {
+	$normalizedBase = (APP_BASE_PATH === '/') ? '' : APP_BASE_PATH;
+	$trimmedPath = ltrim($path, '/');
+
+	if ($trimmedPath === '') {
+		return ($normalizedBase === '') ? '/' : $normalizedBase;
+	}
+
+	$prefix = ($normalizedBase === '') ? '' : $normalizedBase . '/';
+
+	return $prefix . $trimmedPath;
+}
+
+function asset_url($path) {
+	return url($path);
+}
+
+function absolute_url($path = '') {
+	$relative = url($path);
+	$base = rtrim(base_url(), '/');
+
+	if ($relative === '/') {
+		return $base . '/';
+	}
+
+	return $base . $relative;
+}
+
 function base_url() {
     require_once(__DIR__ . '/../config/environment.php');
     if (defined('BASE_URL') && BASE_URL !== null) {

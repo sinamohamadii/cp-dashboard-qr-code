@@ -11,12 +11,12 @@ class Qrcode {
     public function __construct($type) {
         if($type === "static") {
             $this->table = "static_qrcodes";
-            $this->redirect_url = "static_qrcodes.php";
+            $this->redirect_url = url('static_qrcodes.php');
         } else if($type === "dynamic") {
             $this->table = "dynamic_qrcodes";
-            $this->redirect_url = "dynamic_qrcodes.php";
+            $this->redirect_url = url('dynamic_qrcodes.php');
         } else {
-            $this->redirect_url = "index.php";
+            $this->redirect_url = url('index.php');
             $this->failure("Type not allowed");
         }
     }

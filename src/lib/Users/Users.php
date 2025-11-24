@@ -125,9 +125,9 @@ class Users
     /**
      * Flash message Failure process
      */
-    public function failure($message, $location = 'Location: users.php') {
+    public function failure($message, $location = null) {
         $_SESSION['failure'] = $message;
-        header($location);
+        header($this->buildLocationHeader($location ?? 'users.php'));
     	exit();
     }
     
@@ -136,7 +136,7 @@ class Users
      */
     public function success($message) {
         $_SESSION['success'] = $message;
-        header('Location: users.php');
+        header($this->buildLocationHeader('users.php'));
     	exit();
     }
     
@@ -145,8 +145,16 @@ class Users
      */
     public function info($message) {
         $_SESSION['info'] = $message;
-        header('Location: users.php');
+        header($this->buildLocationHeader('users.php'));
     	exit();
+    }
+
+    private function buildLocationHeader($target) {
+        if (stripos($target, 'Location:') === 0) {
+            $target = trim(substr($target, strlen('Location:')));
+        }
+
+        return 'Location: ' . url($target);
     }
 }
 ?>

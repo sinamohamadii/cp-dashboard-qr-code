@@ -122,7 +122,7 @@ class DynamicQrcode {
      */
     private function failure($message) {
         $_SESSION['failure'] = $message;
-        header('Location: dynamic_qrcodes.php');
+        header('Location: ' . url('dynamic_qrcodes.php'));
     	exit();
     }
     
@@ -131,7 +131,7 @@ class DynamicQrcode {
      */
     private function success($message) {
         $_SESSION['success'] = $message;
-        header('Location: dynamic_qrcodes.php');
+        header('Location: ' . url('dynamic_qrcodes.php'));
     	exit();
     }
     
@@ -140,7 +140,7 @@ class DynamicQrcode {
      */
     private function info($message) {
         $_SESSION['info'] = $message;
-        header('Location: dynamic_qrcodes.php');
+        header('Location: ' . url('dynamic_qrcodes.php'));
     	exit();
     }
 

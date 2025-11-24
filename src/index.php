@@ -255,7 +255,7 @@ foreach ($createdQrcode_static as $row) {
         <!-- Footer and scripts -->
         <?php include './includes/footer.php'; ?>
         <!-- ChartJS -->
-        <script src="plugins/chart.js/Chart.min.js"></script>
+        <script src="<?php echo asset_url('plugins/chart.js/Chart.min.js'); ?>"></script>
         <!-- Created Qr code Chart script -->
         <script>
         $(function () {

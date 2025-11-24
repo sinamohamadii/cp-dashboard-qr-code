@@ -63,3 +63,9 @@ password: admin
 docker compose build --no-cache && docker compose up -d
 ```
 3. Open your browser at http://localhost:80 and login with (username: superadmin, password: superadmin)
+
+## Hosting behind a reverse proxy
+- Set the `APP_BASE_PATH` environment variable (default `/`) to the path prefix where the module will be mounted, e.g. `/dashboard/qr-generator`.
+- When `APP_BASE_PATH` is set, all generated links, form actions, assets, and redirects automatically include that prefix. You can therefore proxy requests such as `https://example.com/dashboard/qr-generator` to the PHP container without rewriting the HTML.
+- Add `APP_BASE_PATH` to your Compose file or server environment (for Compose, place it under the `environment:` block of the `php-dynamic-qrcode` service).
+- Keep `BASE_URL` pointing at the public domain (e.g. `https://example.com`) so absolute download links such as saved QR codes continue to work.

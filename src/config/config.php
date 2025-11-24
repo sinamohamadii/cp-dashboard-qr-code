@@ -20,10 +20,10 @@ require_once BASE_PATH . '/helpers/helpers.php';
 //You can change the folder where the qr code will be saved
 define('SAVED_QRCODE_FOLDER', './saved_qrcode/');
 define('SAVED_QRCODE_DIRECTORY', BASE_PATH.'/saved_qrcode/');
-define('SAVED_QRCODE_URL', base_url(). SCRIPT_FOLDER .'/saved_qrcode/');
+define('SAVED_QRCODE_URL', absolute_url('saved_qrcode/'));
 
 //You can change the page name for the redirect and the search parameter (the default is "id")
-define('READ_PATH', base_url().'/read.php?id=');
+define('READ_PATH', absolute_url('read.php?id='));
 
 
 /**
