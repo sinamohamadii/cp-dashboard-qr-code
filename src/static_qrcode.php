@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once 'config/config.php';
-require_once BASE_PATH.'/includes/auth_validate.php';
 require_once BASE_PATH . '/lib/StaticQrcode/StaticQrcode.php';
 
 $static_qrcode_instance = new StaticQrcode();
@@ -19,7 +18,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["del_id"])) {
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["edit"])) {
     if(
         isset($_POST["filename"]) &&
-        isset($_POST["id_owner"]) &&
         isset($_POST["id"])
     )
         $static_qrcode_instance->editQrcode($_POST);

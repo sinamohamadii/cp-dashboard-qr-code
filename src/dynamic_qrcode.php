@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once 'config/config.php';
-require_once BASE_PATH.'/includes/auth_validate.php';
 require_once BASE_PATH . '/lib/DynamicQrcode/DynamicQrcode.php';
 
 $dynamic_qrcode_instance = new DynamicQrcode();
@@ -22,7 +21,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["edit"])) {
             isset($_POST["filename"]) &&
             isset($_POST["link"]) &&
             isset($_POST["state"]) &&
-            isset($_POST["id_owner"]) &&
             isset($_POST["id"])
     )
         $dynamic_qrcode_instance->editQrcode($_POST);
@@ -34,8 +32,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST["edit"])) {
         isset($_POST["background"]) &&
         isset($_POST["link"]) &&
         isset($_POST["filename"]) &&
-        isset($_POST["format"]) &&
-        isset($_POST["id_owner"])
+        isset($_POST["format"])
     )
         $dynamic_qrcode_instance->addQrcode($_POST);
 }

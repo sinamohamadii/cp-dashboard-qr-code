@@ -35,16 +35,6 @@ function getSecureRandomToken() {
 }
 
 /**
- * Clear Auth Cookie
- */
-function clearAuthCookie() {
-
-	unset($_COOKIE['series_id']);
-	unset($_COOKIE['remember_token']);
-	setcookie('series_id', '', -1, '/');
-	setcookie('remember_token', '', -1, '/');
-}
-/**
  *
  */
 function clean_input($data) {
@@ -148,6 +138,11 @@ function absolute_url($path = '') {
 
 	if ($relative === '/') {
 		return $base . '/';
+	}
+
+	// Add leading slash if relative doesn't have one
+	if ($relative !== '' && $relative[0] !== '/') {
+		$relative = '/' . $relative;
 	}
 
 	return $base . $relative;

@@ -281,8 +281,10 @@ class Qrcode {
             try
             {
                 file_put_contents($filename, $content);
+                // Skip resize for vector formats (SVG, EPS) and QRImagick (handles its own sizing)
                 if ($outputInterface !== QRImagick::class &&
-                    $outputInterface !== QRMarkupSVG::class)
+                    $outputInterface !== QRMarkupSVG::class &&
+                    $outputInterface !== QREps::class)
                 {
                     $imagick = new \Imagick(realpath($filename));
                     $imagick->resizeImage($options['size'], $options['size'], imagick::FILTER_LANCZOS, 1, false);

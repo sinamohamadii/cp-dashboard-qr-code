@@ -36,7 +36,6 @@ class StaticQrcode {
     {
         $ordering = [
             'id' => 'ID',
-            'id_owner' => 'Owner',
             'filename' => 'File Name',
             'type' => 'Type',
             'content' => 'Content',
@@ -389,14 +388,8 @@ class StaticQrcode {
      * We save into db the url of qrcode image
      */
     private function addQrcode($type) {
-        if($_POST['id_owner'] != "")
-            $data_to_db['id_owner'] = $_POST['id_owner'];
-        else
-            $data_to_db['id_owner'] = NULL;
         $data_to_db['created_at'] = date('Y-m-d H:i:s');
-        $data_to_db['created_by'] = $_SESSION['user_id'];
         $data_to_db['filename'] = htmlspecialchars($_POST['filename'], ENT_QUOTES, 'UTF-8');
-        $data_to_db['created_at'] = date('Y-m-d H:i:s');
         $data_to_db['type'] = $type;
         $data_to_db['format'] = $_POST['format'];
         $data_to_db['qrcode'] = $data_to_db['filename'].'.'.$data_to_db['format'];
@@ -421,10 +414,6 @@ class StaticQrcode {
      * 
      */
     public function editQrcode($input_data) {
-        if($input_data['id_owner'] != "")
-            $data_to_db['id_owner'] = $input_data['id_owner'];
-        else
-            $data_to_db['id_owner'] = NULL;
         $data_to_db['filename'] = htmlspecialchars($input_data['filename'], ENT_QUOTES, 'UTF-8');
         $data_to_db['created_at'] = date('Y-m-d H:i:s');
 
@@ -436,23 +425,7 @@ class StaticQrcode {
      * 
      */
     public function deleteQrcode($id, $async = false) {
-        if($_SESSION['type'] === "super") {
-            $this->qrcode_instance->deleteQrcode($id, $async);
-        } else if ($_SESSION['type'] === "admin") {
-            $qrcode = $this->getQrcode($id);
-
-            if(!isset($qrcode["id_owner"]))
-                $this->failure("You cannot delete this qrcode");
-
-            require_once BASE_PATH . '/lib/Users/Users.php';
-            $users = new Users();
-            $user = $users->getUser($_SESSION['user_id']);
-
-            if($user["id"] === $qrcode["id_owner"])
-                $this->qrcode_instance->deleteQrcode($id, $async);
-            else
-                $this->failure("You cannot delete this qrcode because it's of another user");
-        }
+        $this->qrcode_instance->deleteQrcode($id, $async);
     }
     
     /**

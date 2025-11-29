@@ -28,7 +28,6 @@
             <tr>
                 <th><input type="checkbox" name="bulk-select" value="1"></th>
                 <th>ID</th>
-                <th>Owner</th>
                 <th>Filename</th>
                 <th>Unique redirect identifier</th>
                 <th>URL</th>
@@ -43,26 +42,11 @@
             <tr>
                 <td><input type="checkbox" name="action[]" value="<?=$row['id']?>" onchange="updateBulkActionVisibility()"></td>
                 <td><?php echo $row['id']; ?></td>
-                <td>
-                    <?php
-                    if(!isset($row['id_owner']))
-                        echo "";
-                    else {
-                        require_once BASE_PATH . '/lib/Users/Users.php';
-                        $users = new Users();
-                        $user = $users->getUser($row['id_owner']);
-                        if($user !== NULL)
-                            echo $user["username"];
-                        else
-                            echo "";
-                    }
-                    ?>
-                </td>
                 <td><?php echo htmlspecialchars($row['filename']); ?></td>
                 <td><?php echo htmlspecialchars($row['identifier']); ?></td>
                 <td><?php echo htmlspecialchars($row['link']); ?></td>
                 <td>
-                    <?php echo '<img src="'.SAVED_QRCODE_URL.htmlspecialchars($row['qrcode']).'" width="100" height="100">'; ?>
+                    <?php echo '<img src="' . url('saved_qrcode/' . htmlspecialchars($row['qrcode'])) . '" width="100" height="100">'; ?>
                 </td>
                 <td><?php echo htmlspecialchars($row['scan']); ?></td>
                 <td><?php echo htmlspecialchars($row['state']); ?></td>
@@ -80,7 +64,7 @@
                     ><i class="fas fa-trash"></i></a>
                     
                     <!-- DOWNLOAD -->
-                    <a href="<?php echo SAVED_QRCODE_URL.htmlspecialchars($row['qrcode']); ?>" class="btn btn-primary" download><i class="fa fa-download"></i></a>
+                    <a href="<?php echo url('saved_qrcode/' . htmlspecialchars($row['qrcode'])); ?>" class="btn btn-primary" download><i class="fa fa-download"></i></a>
                 </td>
             </tr>
             <?php endforeach; ?>
