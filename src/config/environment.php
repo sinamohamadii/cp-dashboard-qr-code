@@ -28,3 +28,15 @@ if ($appBasePath === '') {
 }
 
 define('APP_BASE_PATH', $appBasePath);
+
+// Payload Authentication Configuration
+define('APP_ENV', getenv('APP_ENV') ?: 'local');
+define('PAYLOAD_LOGIN_URL', getenv('PAYLOAD_LOGIN_URL') ?: (
+    APP_ENV === 'production' 
+        ? 'https://dashboard.caesar-projects.com/' 
+        : 'http://localhost:3100/'
+));
+define('PAYLOAD_COOKIE_NAME', getenv('PAYLOAD_COOKIE_NAME') ?: 'payload-token');
+// Internal API URL for server-to-server requests from Docker container
+// Use host.docker.internal to reach host machine from inside Docker on Windows/Mac
+define('PAYLOAD_API_BASE_URL', getenv('PAYLOAD_API_BASE_URL') ?: 'http://host.docker.internal:3100');

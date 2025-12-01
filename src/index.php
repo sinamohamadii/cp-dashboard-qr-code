@@ -9,7 +9,9 @@ ini_set('session.use_only_cookies', 1);
 ini_set('session.cookie_secure', 1);
 
 session_start();
-require_once './config/config.php';
+
+// Payload Authentication Guard
+require_once './includes/payload_guard.php';
 
 $db = getDbInstance();
 

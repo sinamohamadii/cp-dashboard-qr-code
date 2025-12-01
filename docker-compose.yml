@@ -15,6 +15,10 @@ services:
       DATABASE_PASSWORD: "changeme"
       DATABASE_PREFIX: ""
       DATABASE_CHARSET: "utf8"
+      # Payload Authentication
+      APP_ENV: "local"
+      PAYLOAD_LOGIN_URL: "http://localhost:3100/"
+      PAYLOAD_API_BASE_URL: "http://host.docker.internal:3100"
     ports:
       - 8081:80
     depends_on:

@@ -1,6 +1,8 @@
 <?php
 session_start();
-require_once 'config/config.php';
+
+// Payload Authentication Guard
+require_once './includes/payload_guard.php';
 require_once BASE_PATH . '/lib/DynamicQrcode/DynamicQrcode.php';
 
 $dynamic_qrcode_instance = new DynamicQrcode();

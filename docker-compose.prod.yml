@@ -15,6 +15,15 @@ services:
       DATABASE_PASSWORD: "changeme"
       DATABASE_PREFIX: ""
       DATABASE_CHARSET: "utf8"
+      # Payload Authentication
+      APP_ENV: "production"
+      PAYLOAD_LOGIN_URL: "https://dashboard.caesar-projects.com/"
+      # PAYLOAD_API_BASE_URL: Internal URL for server-to-server API calls
+      # Options depending on your setup:
+      #   - Same Docker network: "http://payload-container:3000"
+      #   - Same server (Docker host): "http://host.docker.internal:3000"  
+      #   - Different server/public: "https://dashboard.caesar-projects.com"
+      PAYLOAD_API_BASE_URL: "https://dashboard.caesar-projects.com"
     ports:
       - 8082:80
     depends_on:

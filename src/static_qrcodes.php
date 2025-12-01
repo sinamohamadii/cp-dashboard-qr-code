@@ -1,6 +1,8 @@
 <?php
 session_start();
-require_once 'config/config.php';
+
+// Payload Authentication Guard
+require_once './includes/payload_guard.php';
 require_once BASE_PATH . '/lib/StaticQrcode/StaticQrcode.php';
 
 $db = getDbInstance();
