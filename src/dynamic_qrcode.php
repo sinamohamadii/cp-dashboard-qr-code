@@ -55,46 +55,31 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST["edit"])) {
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-            
-          <div class="col-sm-6">
-              <h1 class="m-0 text-dark"><?php echo ($edit) ? "Edit" : "Add"; ?> Qr code</h1>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-    
-    <!-- Flash messages -->
-    <?php include BASE_PATH.'/includes/flash_messages.php'; ?>
-    <!-- /.Flash messages -->
+    <div class="container-fluid py-4">
+      
+      <!-- Flash messages -->
+      <?php include BASE_PATH.'/includes/flash_messages.php'; ?>
+      <!-- /.Flash messages -->
 
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">Enter the requested data</h3>
-                </div>
-                <form class="form" action="" method="post" id="dynamic_form" enctype="multipart/form-data">
-                    <div class="card-body">
-                        <?php
-                            if($edit)
-                                include BASE_PATH.'/forms/form_dynamic_edit.php';
-                            else
-                                include BASE_PATH . '/forms/form_dynamic_add.php';
-                        ?>
-                    </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div><!--/. container-fluid -->
-    </section><!-- /.content -->
+      <!-- Form Card -->
+      <div class="form-card">
+        <form class="form" action="" method="post" id="dynamic_form" enctype="multipart/form-data">
+          <div class="form-card-body">
+            <?php
+              if($edit)
+                include BASE_PATH.'/forms/form_dynamic_edit.php';
+              else
+                include BASE_PATH . '/forms/form_dynamic_add.php';
+            ?>
+          </div>
+          <div class="form-card-footer">
+            <a href="<?php echo url('dynamic_qrcodes.php'); ?>" class="btn-cancel">Cancel</a>
+            <button type="submit" class="btn-submit">Save Changes</button>
+          </div>
+        </form>
+      </div>
+      
+    </div><!--/. container-fluid -->
   </div><!-- /.content-wrapper -->
 
 <!-- Footer and scripts -->

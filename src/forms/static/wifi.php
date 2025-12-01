@@ -31,12 +31,11 @@
     </div>
 </div>
 
-<div class="col-sm-12 mb-2">
-    <div class="row">
-        <div class="col-6 col-md-3">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>    
-    </div>
+<div class="row mt-4">
+    <div class="col-12 d-flex" style="gap: 12px;">
+        <a href="<?php echo url('static_qrcodes.php'); ?>" class="btn-cancel">Cancel</a>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>    
 </div>
                 
 </form>

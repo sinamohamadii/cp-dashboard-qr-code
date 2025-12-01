@@ -105,24 +105,42 @@ foreach ($createdQrcode_static as $row) {
                             <div class="row">
                                 
                                 <div class="col-12 col-sm-6 col-md-3">
-                                    <div class="info-box mb-3 bg-warning">
-                                        <span class="info-box-icon"><i class="fa fa-qrcode"></i></span>
-
-                                        <div class="info-box-content">
-                                            <span class="info-box-text">Total qr codes</span>
-                                            <span class="info-box-number"><?php echo $total; ?></span>
-                                        </div><!-- /.info-box-content -->
+                                    <div class="stat-card mb-3">
+                                        <div class="stat-card-header">
+                                            <span class="stat-card-title">Total QR Codes</span>
+                                            <span class="stat-card-icon">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="14" y="14" width="3" height="3" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="18" y="14" width="3" height="3" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="14" y="18" width="3" height="3" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="18" y="18" width="3" height="3" stroke="currentColor" stroke-width="1.5"/>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <p class="stat-card-value"><?php echo $total; ?></p>
                                     </div>
                                 </div><!-- /.col -->
                                     
                                 <div class="col-12 col-sm-6 col-md-3">
-                                    <div class="info-box mb-3 bg-success">
-                                        <span class="info-box-icon"><i class="fa fa-qrcode"></i></span>
-
-                                        <div class="info-box-content">
-                                            <span class="info-box-text">Dynamic Qr codes</span>
-                                            <span class="info-box-number"><?php echo $numQrcode_dynamic; ?></span>
-                                        </div><!-- /.info-box-content -->
+                                    <div class="stat-card mb-3">
+                                        <div class="stat-card-header">
+                                            <span class="stat-card-title">Dynamic QR Codes</span>
+                                            <span class="stat-card-icon">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="14" y="14" width="3" height="3" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="18" y="14" width="3" height="3" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="14" y="18" width="3" height="3" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="18" y="18" width="3" height="3" stroke="currentColor" stroke-width="1.5"/>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <p class="stat-card-value"><?php echo $numQrcode_dynamic; ?></p>
                                     </div>
                                 </div><!-- /.col -->
 
@@ -130,25 +148,37 @@ foreach ($createdQrcode_static as $row) {
                                 <div class="clearfix hidden-md-up"></div>
 
                                 <div class="col-12 col-sm-6 col-md-3">
-                                    <div class="info-box mb-3 bg-danger">
-                                        <span class="info-box-icon"><i class="fa fa-qrcode"></i></span>
-
-                                        <div class="info-box-content">
-                                            <span class="info-box-text">Static QR codes</span>
-                                            <span class="info-box-number"><?php echo $numQrcode_static; ?></span>
-                                        </div><!-- /.info-box-content -->
-
+                                    <div class="stat-card mb-3">
+                                        <div class="stat-card-header">
+                                            <span class="stat-card-title">Static QR Codes</span>
+                                            <span class="stat-card-icon">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="14" y="14" width="3" height="3" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="18" y="14" width="3" height="3" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="14" y="18" width="3" height="3" stroke="currentColor" stroke-width="1.5"/>
+                                                    <rect x="18" y="18" width="3" height="3" stroke="currentColor" stroke-width="1.5"/>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <p class="stat-card-value"><?php echo $numQrcode_static; ?></p>
                                     </div>
                                 </div><!-- /.col -->
                                 
                                 <div class="col-12 col-sm-6 col-md-3">
-                                    <div class="info-box mb-3 bg-info">
-                                        <span class="info-box-icon"><i class="fas fa-chart-line"></i></span>
-
-                                        <div class="info-box-content">
-                                            <span class="info-box-text">Total Scans</span>
-                                            <span class="info-box-number"><?php echo $numScan["numScan"]; ?></span>
-                                        </div><!-- /.info-box-content -->
+                                    <div class="stat-card mb-3">
+                                        <div class="stat-card-header">
+                                            <span class="stat-card-title">Total Scans</span>
+                                            <span class="stat-card-icon">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M3 17L9 11L13 15L21 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M17 7H21V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <p class="stat-card-value"><?php echo $numScan["numScan"]; ?></p>
                                     </div>
                                 </div><!-- /.col -->
                             </div><!-- /.row -->
@@ -157,74 +187,46 @@ foreach ($createdQrcode_static as $row) {
                                 
                             <div class="col-md-6">
                                 <!-- Created chart -->
-                                <div class="card card-primary">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Qr codes created in the last week</h3>
-
-                                        <div class="card-tools">
-                                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                                            </button>
-                                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                                <div class="chart-card mb-3">
+                                    <div class="chart-card-header">
+                                        <div class="chart-card-icon yellow">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M3 3V21H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M7 14L12 9L16 13L21 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
                                         </div>
+                                        <span class="chart-card-title">QR codes created in the last week</span>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="d-flex">
-                                            <p class="d-flex flex-column">
-                                                <span class="text-bold text-lg"><?php echo $dynamic_today + $dynamic_oneday + $dynamic_twoday + $dynamic_threeday + $dynamic_fourday + $dynamic_fiveday + $dynamic_sixday + $static_today + $static_oneday + $static_twoday + $static_threeday + $static_fourday + $static_fiveday + $static_sixday?></span>
-                                                <span>Total qr code created</span>
-                                            </p>
-                                        </div>
-
-                                        <div class="position-relative mb-4">
-                                            <div class="chartjs-size-monitor">
-                                                <div class="chartjs-size-monitor-expand">
-                                                    <div class=""></div>
-                                                </div>
-                                                <div class="chartjs-size-monitor-shrink">
-                                                    <div class=""></div>
-                                                </div>
-                                            </div>
-                    
-                                            <canvas id="created-chart" height="400" width="958" class="chartjs-render-monitor" style="display: block; height: 200px; width: 479px;"></canvas>
-                                        </div>
-
-                                        <div class="d-flex flex-row justify-content-end">
-                                            <span class="mr-2">
-                                                <i class="fas fa-square text-primary"></i> Dynamic
-                                            </span>
-
-                                            <span>
-                                                <i class="fas fa-square text-gray"></i> Static
-                                            </span>
-                                        </div>
-                                    </div><!-- /.card-body -->
-                                </div><!-- /.card -->
+                                    <div class="chart-card-stats">
+                                        <p class="chart-card-value"><?php echo $dynamic_today + $dynamic_oneday + $dynamic_twoday + $dynamic_threeday + $dynamic_fourday + $dynamic_fiveday + $dynamic_sixday + $static_today + $static_oneday + $static_twoday + $static_threeday + $static_fourday + $static_fiveday + $static_sixday?></p>
+                                    </div>
+                                    <div class="chart-card-body">
+                                        <canvas id="created-chart"></canvas>
+                                    </div>
+                                </div><!-- /.chart-card -->
                             </div><!-- /.col (LEFT) -->
 
                             <div class="col-md-6">
-                                <section class="connectedSortable">
-                                    <div class="card bg-gradient-info">
-                                        <div class="card-header border-0">
-                                            <h3 class="card-title">
-                                                <i class="fas fa-th mr-1"></i>
-                                                Scan Graph
-                                                </h3>
-
-                                            <div class="card-tools">
-                                                <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
-                                                    <i class="fas fa-minus"></i>
-                                                </button>
-                                                <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
-                                                    <i class="fas fa-times"></i>
-                                                </button>
-                                            </div>
+                                <!-- Scan chart -->
+                                <div class="chart-card mb-3">
+                                    <div class="chart-card-header">
+                                        <div class="chart-card-icon yellow">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                                                <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                                                <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                                                <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
                                         </div>
-                                        
-                                        <div class="card-body">
-                                            <canvas class="chart" id="scan-chart" style="min-height: 313px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                                        </div>
+                                        <span class="chart-card-title">Scan Graph</span>
                                     </div>
-                                </section>
+                                    <div class="chart-card-stats">
+                                        <p class="chart-card-value"><?php echo $numScan["numScan"]; ?></p>
+                                    </div>
+                                    <div class="chart-card-body">
+                                        <canvas id="scan-chart"></canvas>
+                                    </div>
+                                </div><!-- /.chart-card -->
                             </div><!-- /.col (RIGHT) -->
                         </div><!-- /.row -->
                         
@@ -243,8 +245,9 @@ foreach ($createdQrcode_static as $row) {
   'use strict'
 
   var ticksStyle = {
-    fontColor: '#495057',
-    fontStyle: 'bold'
+    fontColor: '#98989A',
+    fontStyle: 'normal',
+    fontSize: 11
   }
 
   var mode      = 'index'
@@ -254,13 +257,13 @@ foreach ($createdQrcode_static as $row) {
   var createdChart  = new Chart($createdChart, {
     data   : {
       labels  : [   
-                    '<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d')-6,date('Y'))); ?>', 
-                    '<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d')-5,date('Y'))); ?>', 
-                    '<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d')-4,date('Y'))); ?>', 
-                    '<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d')-3,date('Y'))); ?>', 
-                    '<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d')-2,date('Y'))); ?>', 
-                    '<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d')-1,date('Y'))); ?>', 
-                    '<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d'),date('Y'))); ?>'
+                    '<?php echo date("m/d",mktime(0,0,0,date('m'),date('d')-6,date('Y'))); ?>', 
+                    '<?php echo date("m/d",mktime(0,0,0,date('m'),date('d')-5,date('Y'))); ?>', 
+                    '<?php echo date("m/d",mktime(0,0,0,date('m'),date('d')-4,date('Y'))); ?>', 
+                    '<?php echo date("m/d",mktime(0,0,0,date('m'),date('d')-3,date('Y'))); ?>', 
+                    '<?php echo date("m/d",mktime(0,0,0,date('m'),date('d')-2,date('Y'))); ?>', 
+                    '<?php echo date("m/d",mktime(0,0,0,date('m'),date('d')-1,date('Y'))); ?>', 
+                    '<?php echo date("m/d",mktime(0,0,0,date('m'),date('d'),date('Y'))); ?>'
                 ],
       datasets: [{
         type                : 'line',
@@ -275,9 +278,13 @@ foreach ($createdQrcode_static as $row) {
 
                             ],
         backgroundColor     : 'transparent',
-        borderColor         : '#007bff',
-        pointBorderColor    : '#007bff',
-        pointBackgroundColor: '#007bff',
+        borderColor         : '#F7CC40',
+        pointBorderColor    : '#F7CC40',
+        pointBackgroundColor: '#F7CC40',
+        pointRadius         : 4,
+        pointHoverRadius    : 6,
+        borderWidth         : 2,
+        lineTension         : 0.4,
         fill                : false
       },
         {
@@ -292,15 +299,20 @@ foreach ($createdQrcode_static as $row) {
                                 <?php echo $static_today ?>,
 
                             ],
-          backgroundColor     : 'tansparent',
-          borderColor         : '#ced4da',
-          pointBorderColor    : '#ced4da',
-          pointBackgroundColor: '#ced4da',
+          backgroundColor     : 'transparent',
+          borderColor         : '#E6E6E6',
+          pointBorderColor    : '#E6E6E6',
+          pointBackgroundColor: '#E6E6E6',
+          pointRadius         : 4,
+          pointHoverRadius    : 6,
+          borderWidth         : 2,
+          lineTension         : 0.4,
           fill                : false
         }]
     },
     options: {
       maintainAspectRatio: false,
+      responsive: true,
       tooltips           : {
         mode     : mode,
         intersect: intersect
@@ -314,24 +326,28 @@ foreach ($createdQrcode_static as $row) {
       },
       scales             : {
         yAxes: [{
-          // display: false,
           gridLines: {
             display      : true,
-            lineWidth    : '4px',
-            color        : 'rgba(0, 0, 0, .2)',
-            zeroLineColor: 'transparent'
+            lineWidth    : 1,
+            color        : '#E6E6E6',
+            zeroLineColor: '#E6E6E6',
+            drawBorder   : false
           },
           ticks    : $.extend({
             beginAtZero : true,
-            suggestedMax: 10
+            suggestedMax: 10,
+            padding: 10
           }, ticksStyle)
         }],
         xAxes: [{
           display  : true,
           gridLines: {
-            display: false
+            display: false,
+            drawBorder: false
           },
-          ticks    : ticksStyle
+          ticks    : $.extend({
+            padding: 10
+          }, ticksStyle)
         }]
       }
     }
@@ -341,41 +357,39 @@ foreach ($createdQrcode_static as $row) {
         <!-- /.Created Chart script -->
         <!-- Scan Chart -->
         <script>
-            /*
- * Author: Abdullah A Almsaeed
- * Date: 4 Jan 2014
- **/
-
 $(function () {
-
   'use strict'
-  /* Chart.js Charts */
-  // Sales graph chart
-  var salesGraphChartCanvas = $('#scan-chart').get(0).getContext('2d');
-  //$('#revenue-chart').get(0).getContext('2d');
+  
+  var ticksStyle = {
+    fontColor: '#98989A',
+    fontStyle: 'normal',
+    fontSize: 11
+  }
 
-  var salesGraphChartData = {
+  var scanChartCanvas = $('#scan-chart').get(0).getContext('2d');
+
+  var scanChartData = {
     labels  : [   
-                    '<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d')-6,date('Y'))); ?>', 
-                    '<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d')-5,date('Y'))); ?>', 
-                    '<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d')-4,date('Y'))); ?>', 
-                    '<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d')-3,date('Y'))); ?>', 
-                    '<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d')-2,date('Y'))); ?>', 
-                    '<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d')-1,date('Y'))); ?>', 
-                    '<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d'),date('Y'))); ?>'
+                    '<?php echo date("m/d",mktime(0,0,0,date('m'),date('d')-6,date('Y'))); ?>', 
+                    '<?php echo date("m/d",mktime(0,0,0,date('m'),date('d')-5,date('Y'))); ?>', 
+                    '<?php echo date("m/d",mktime(0,0,0,date('m'),date('d')-4,date('Y'))); ?>', 
+                    '<?php echo date("m/d",mktime(0,0,0,date('m'),date('d')-3,date('Y'))); ?>', 
+                    '<?php echo date("m/d",mktime(0,0,0,date('m'),date('d')-2,date('Y'))); ?>', 
+                    '<?php echo date("m/d",mktime(0,0,0,date('m'),date('d')-1,date('Y'))); ?>', 
+                    '<?php echo date("m/d",mktime(0,0,0,date('m'),date('d'),date('Y'))); ?>'
                 ],
     datasets: [
       {
         label               : 'Scan',
         fill                : false,
         borderWidth         : 2,
-        lineTension         : 0,
-        spanGaps : true,
-        borderColor         : '#efefef',
-        pointRadius         : 3,
-        pointHoverRadius    : 7,
-        pointColor          : '#efefef',
-        pointBackgroundColor: '#efefef',
+        lineTension         : 0.4,
+        spanGaps            : true,
+        borderColor         : '#F7CC40',
+        pointRadius         : 4,
+        pointHoverRadius    : 6,
+        pointBorderColor    : '#F7CC40',
+        pointBackgroundColor: '#F7CC40',
         data                : [
                                 <?php echo $scan_sixday ?>, 
                                 <?php echo $scan_fiveday ?>, 
@@ -384,13 +398,12 @@ $(function () {
                                 <?php echo $scan_twoday ?>,
                                 <?php echo $scan_oneday ?>,
                                 <?php echo $scan_today ?>,
-
                             ],
       }
     ]
   }
 
-  var salesGraphChartOptions = {
+  var scanChartOptions = {
     maintainAspectRatio : false,
     responsive : true,
     legend: {
@@ -398,38 +411,37 @@ $(function () {
     },
     scales: {
       xAxes: [{
-        ticks : {
-          fontColor: '#efefef',
-        },
+        ticks : $.extend({
+          padding: 10
+        }, ticksStyle),
         gridLines : {
           display : false,
-          color: '#efefef',
           drawBorder: false,
         }
       }],
       yAxes: [{
-        ticks : {
-          stepSize: 2,
-          fontColor: '#efefef',
+        ticks : $.extend({
+          beginAtZero: true,
           suggestedMax: 30,
-        },
+          padding: 10
+        }, ticksStyle),
         gridLines : {
           display : true,
-          color: '#efefef',
+          color: '#E6E6E6',
+          zeroLineColor: '#E6E6E6',
           drawBorder: false,
+          lineWidth: 1
         }
       }]
     }
   }
 
-  // This will get the first returned node in the jQuery collection.
-  var salesGraphChart = new Chart(salesGraphChartCanvas, { 
+  var scanChart = new Chart(scanChartCanvas, { 
       type: 'line', 
-      data: salesGraphChartData, 
-      options: salesGraphChartOptions
+      data: scanChartData, 
+      options: scanChartOptions
     }
   )
-
 })
         </script>
         <!-- /. Scan Chart -->

@@ -35,45 +35,45 @@ $total_pages = $db->totalPages;
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-            
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Static Qr codes</h1>
-          </div><!-- /.col -->
+    <div class="container-fluid py-4">
+      
+      <!-- Flash message-->
+      <?php include BASE_PATH . '/includes/flash_messages.php'; ?>
+      <!-- /.Flash message-->
+      
+      <!-- QR List Card -->
+      <div class="qr-list-card">
+        <!-- Header with filters and add button -->
+        <div class="qr-list-header">
+          <!-- Filters (left side) -->
+          <?php $options = $static_qrcode->setOrderingValues(); ?>
+          <form action="" class="qr-list-filters">
+            <input type="text" class="search-input" placeholder="Search" name="search_str" value="<?php echo htmlspecialchars($search_str??'', ENT_QUOTES, 'UTF-8'); ?>">
+            <select name="order_by" class="filter-select">
+              <?php foreach ($options as $opt_value => $opt_name):
+                $selected = ($order_by === $opt_value) ? 'selected' : '';
+                echo '<option value="' . $opt_value . '" ' . $selected . '>' . $opt_name . '</option>';
+              endforeach; ?>
+            </select>
+            <select name="order_dir" class="filter-select">
+              <option value="Asc" <?php if ($order_dir == 'Asc') echo 'selected'; ?>>Asc</option>
+              <option value="Desc" <?php if ($order_dir == 'Desc') echo 'selected'; ?>>Desc</option>
+            </select>
+            <button type="submit" class="btn-go">Go</button>
+          </form>
           
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item">
-                  <a href="<?php echo url('static_qrcode.php'); ?>" class="btn btn-success"><i class="fa fa-plus"></i> Add new</a>
-                </li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div><!-- /.content-header -->
-    
-    <!-- Flash message-->
-    <?php include BASE_PATH . '/includes/flash_messages.php'; ?>
-    <!-- /.Flash message-->
-            
-    <!-- Filters -->
-    <?php $options = $static_qrcode->setOrderingValues();
-          include BASE_PATH . '/forms/filters.php'; ?>  
-    <!-- /.Filters-->
-    
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-          
+          <!-- Add New button (right side) -->
+          <a href="<?php echo url('static_qrcode.php'); ?>" class="btn-add-new">
+            <i class="fa fa-plus"></i> Add New
+          </a>
+        </div>
+        
         <!-- Table -->
         <?php include BASE_PATH . '/forms/table_static.php'; ?>
-        <!-- /.Table -->
-    
-        </div><!-- /.container-fluid -->
-    </section>
+      </div>
+      <!-- /.QR List Card -->
+      
+    </div><!-- /.container-fluid -->
   </div><!-- /.content-wrapper -->
 
     <!-- Footer and scripts -->

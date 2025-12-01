@@ -1,39 +1,29 @@
-<div class="row">
-    <div class="col-12" id="bulk-action-div" style="display: none;">
-        <div id="err-msg"></div>
-        <div class="bulk-action-wrapper">
-            <form id="bulk-action" action="<?php echo url('bulk_action.php'); ?>" method="POST">
-                <div class="col-sm-12 mb-2" style="margin-left: 10px">
-                    <div class="row">
-                        <div class="col-5 col-md-2">
-                            <div class="input-group">
-                                <select name="action" class="form-control">
-                                    <option value="download" selected >Download</option>
-                                    <option value="delete">Delete</option>
-                                </select>
-                                <input type="hidden" name="type" value="dynamic">
-                                <button type="submit" class="btn btn-primary">Apply</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body table-responsive p-0">
-      <table class="table table-striped table-bordered">
+<!-- Bulk Action Bar -->
+<div class="bulk-action-bar" id="bulk-action-div">
+    <form id="bulk-action" action="<?php echo url('bulk_action.php'); ?>" method="POST" class="d-flex align-items-center" style="gap: 12px;">
+        <select name="action" class="bulk-select">
+            <option value="download" selected>Download</option>
+            <option value="delete">Delete</option>
+        </select>
+        <input type="hidden" name="type" value="dynamic">
+        <button type="submit" class="btn-apply">Apply</button>
+    </form>
+</div>
+
+<!-- Table -->
+<div class="table-responsive">
+    <table class="qr-list-table">
         <thead>
             <tr>
-                <th><input type="checkbox" name="bulk-select" value="1"></th>
-                <th>ID</th>
-                <th>Filename</th>
+                <th style="width: 40px;"><input type="checkbox" name="bulk-select" value="1"></th>
+                <th>ID <i class="fas fa-sort sort-icon"></i></th>
+                <th>Owner</th>
+                <th>File Name <i class="fas fa-sort sort-icon"></i></th>
                 <th>Unique redirect identifier</th>
-                <th>URL</th>
-                <th>Qr code</th>
-                <th>Scan</th>
-                <th>Status</th>
+                <th>URL <i class="fas fa-sort sort-icon"></i></th>
+                <th>QR Code <i class="fas fa-sort sort-icon"></i></th>
+                <th>Scan <i class="fas fa-sort sort-icon"></i></th>
+                <th>Status <i class="fas fa-sort sort-icon"></i></th>
                 <th>Operations</th>
             </tr>
         </thead>
@@ -42,43 +32,48 @@
             <tr>
                 <td><input type="checkbox" name="action[]" value="<?=$row['id']?>" onchange="updateBulkActionVisibility()"></td>
                 <td><?php echo $row['id']; ?></td>
+                <td>Admin</td>
                 <td><?php echo htmlspecialchars($row['filename']); ?></td>
                 <td><?php echo htmlspecialchars($row['identifier']); ?></td>
                 <td><?php echo htmlspecialchars($row['link']); ?></td>
                 <td>
-                    <?php echo '<img src="' . url('saved_qrcode/' . htmlspecialchars($row['qrcode'])) . '" width="100" height="100">'; ?>
+                    <img src="<?php echo url('saved_qrcode/' . htmlspecialchars($row['qrcode'])); ?>" class="qr-thumb" alt="QR Code">
                 </td>
                 <td><?php echo htmlspecialchars($row['scan']); ?></td>
-                <td><?php echo htmlspecialchars($row['state']); ?></td>
                 <td>
-                    
-                    <!-- EDIT -->
-                    <a href="<?php echo url('dynamic_qrcode.php?edit=true&id=' . $row['id']); ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                    
-                    <!-- DELETE -->
-                    <a
-                            class="btn btn-danger delete_btn"
-                            data-toggle="modal"
-                            data-target="#delete-modal"
-                            data-del_id="<?php echo $row["id"];?>"
-                    ><i class="fas fa-trash"></i></a>
-                    
-                    <!-- DOWNLOAD -->
-                    <a href="<?php echo url('saved_qrcode/' . htmlspecialchars($row['qrcode'])); ?>" class="btn btn-primary" download><i class="fa fa-download"></i></a>
+                    <?php if (strtolower($row['state']) === 'enable' || strtolower($row['state']) === 'enabled'): ?>
+                        <span class="status-badge enabled">Enable</span>
+                    <?php else: ?>
+                        <span class="status-badge disabled">Disable</span>
+                    <?php endif; ?>
+                </td>
+                <td>
+                    <div class="op-buttons">
+                        <a href="<?php echo url('dynamic_qrcode.php?edit=true&id=' . $row['id']); ?>" class="op-btn edit" title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="<?php echo url('saved_qrcode/' . htmlspecialchars($row['qrcode'])); ?>" class="op-btn download" download title="Download"><i class="fa fa-download"></i></a>
+                        <a class="op-btn delete delete_btn" data-toggle="modal" data-target="#delete-modal" data-del_id="<?php echo $row["id"];?>" title="Delete"><i class="fas fa-trash"></i></a>
+                    </div>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-   </div><!-- /.Card body -->
-   
-   <div class="card-footer clearfix">
-       <?php echo paginationLinks($page, $total_pages, url('dynamic_qrcodes.php')); ?>
-       </div><!-- /.Card footer -->
-       
-        </div><!-- /.Card -->
-    </div><!-- /.col -->
-</div><!-- /.row -->
+</div>
+
+<!-- Footer with pagination -->
+<div class="qr-list-footer">
+    <span class="pagination-info"><?php 
+        $start = (($page - 1) * 15 + 1);
+        $end = min($page * 15, $db->totalCount);
+        $total = $db->totalCount;
+        if ($total > 0) {
+            echo "{$start}-{$end} of {$total}";
+        } else {
+            echo "0 results";
+        }
+    ?></span>
+    <?php echo paginationLinks($page, $total_pages, url('dynamic_qrcodes.php')); ?>
+</div>
 
 <!-- Delete Confirmation Modal -->
 <div class="modal fade" id="delete-modal" role="dialog">
@@ -96,8 +91,8 @@
                     <p>Are you sure you want to delete this row? Proceeding with the cancellation it will no longer be possible to recover the unique identifier and you will delete the created QR code from the server</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
                 </div>
             </div>
         </form>
@@ -126,9 +121,9 @@
         const selectedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
 
         if (selectedCheckboxes.length > 0) {
-            bulkActionDiv.style.display = 'block';
+            bulkActionDiv.classList.add('show');
         } else {
-            bulkActionDiv.style.display = 'none';
+            bulkActionDiv.classList.remove('show');
         }
     }
 

@@ -61,19 +61,17 @@ function paginationLinks($current_page, $total_pages, $base_url) {
 		$http_query = "?";
 	}
 
-	$html = '<ul class="pagination pagination-sm m-0 float-right">';
+	$html = '<nav class="pagination-nav">';
 
+	// Previous link
 	if ($current_page == 1) {
-
-		$html .= '<li class="page-item disabled"><a class="page-link">First</a></li>';
+		$html .= '<span class="page-link disabled">&lt; Previous</span>';
 	} else {
-		$html .= '<li class="page-item"><a class="page-link" href="' . $base_url . $http_query . '&page=1">First</a></li>';
+		$prev_page = $current_page - 1;
+		$html .= '<a class="page-link" href="' . $base_url . $http_query . '&page=' . $prev_page . '">&lt; Previous</a>';
 	}
 
-	// Show pagination links
-
-	//var i = (Number(data.page) > 5 ? Number(data.page) - 4 : 1);
-
+	// Page number links
 	if ($current_page > 5) {
 		$i = $current_page - 4;
 	} else {
@@ -81,28 +79,24 @@ function paginationLinks($current_page, $total_pages, $base_url) {
 	}
 
 	for (; $i <= ($current_page + 4) && ($i <= $total_pages); $i++) {
-		($current_page == $i) ? $li_class = ' class="active"' : $li_class = '';
-
+		$active_class = ($current_page == $i) ? ' active' : '';
 		$link = $base_url . $http_query;
-
-		$html = $html . '<li class="page-item"' . $li_class . '><a class="page-link" href="' . $link . '&page=' . $i . '">' . $i . '</a></li>';
+		$html .= '<a class="page-link' . $active_class . '" href="' . $link . '&page=' . $i . '">' . $i . '</a>';
 
 		if ($i == $current_page + 4 && $i < $total_pages) {
-
-			$html = $html . '<li class="page-item disabled"><a class="page-link">...</a></li>';
-
+			$html .= '<span class="page-link disabled">...</span>';
 		}
-
 	}
 
+	// Next link
 	if ($current_page == $total_pages) {
-		$html .= '<li class="page-item disabled"><a class="page-link">Last</a></li>';
+		$html .= '<span class="page-link disabled">Next &gt;</span>';
 	} else {
-
-		$html .= '<li class="page-item"><a class="page-link" href="' . $base_url . $http_query . '&page=' . $total_pages . '">Last</a></li>';
+		$next_page = $current_page + 1;
+		$html .= '<a class="page-link" href="' . $base_url . $http_query . '&page=' . $next_page . '">Next &gt;</a>';
 	}
 
-	$html = $html . '</ul>';
+	$html = $html . '</nav>';
 
 	return $html;
 }

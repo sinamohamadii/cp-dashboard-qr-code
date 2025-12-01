@@ -1,48 +1,48 @@
 <fieldset>
-    <div class="card card-primary card-outline card-outline-tabs">
-            <div class="card-header p-0 border-bottom-0">
+    <div class="qr-tabs-card">
+            <div class="card-header">
                 <ul class="nav nav-tabs" role="tablist">
                   <li class="nav-item">
-                    <a class="nav-link active" data-toggle="pill" href="#text" role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">Text <i class="fas fa-align-left"></i></a>
+                    <a class="nav-link active" data-toggle="pill" href="#text" role="tab"><i class="fas fa-align-left"></i> Text</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#email" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Email <i class="far fa-envelope"></i></a>
+                    <a class="nav-link" data-toggle="pill" href="#email" role="tab"><i class="far fa-envelope"></i> Email</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#phone" role="tab" aria-controls="custom-tabs-four-messages" aria-selected="false">Phone <i class="fas fa-phone-volume"></i></a>
+                    <a class="nav-link" data-toggle="pill" href="#phone" role="tab"><i class="fas fa-phone-volume"></i> Phone</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#sms" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Sms <i class="far fa-comments"></i></a>
+                    <a class="nav-link" data-toggle="pill" href="#sms" role="tab"><i class="far fa-comments"></i> SMS</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#whatsapp" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Whatsapp <i class="fab fa-whatsapp"></i></a>
+                    <a class="nav-link" data-toggle="pill" href="#whatsapp" role="tab"><i class="fab fa-whatsapp"></i> Whatsapp</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#skype" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Skype <i class="fab fa-skype"></i></a>
+                    <a class="nav-link" data-toggle="pill" href="#skype" role="tab"><i class="fab fa-skype"></i> Skype</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#location" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Location <i class="fas fa-map-marker-alt"></i></a>
+                    <a class="nav-link" data-toggle="pill" href="#location" role="tab"><i class="fas fa-map-marker-alt"></i> Location</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#vcard" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Vcard 4.0 <i class="far fa-address-card"></i></a>
+                    <a class="nav-link" data-toggle="pill" href="#vcard" role="tab"><i class="far fa-address-card"></i> Vcard 0.4</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#event" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Event <i class="fas fa-calendar-alt"></i></a>
+                    <a class="nav-link" data-toggle="pill" href="#event" role="tab"><i class="fas fa-calendar-alt"></i> Event</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#bookmark" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Bookmark <i class="far fa-bookmark"></i></a>
+                    <a class="nav-link" data-toggle="pill" href="#bookmark" role="tab"><i class="far fa-bookmark"></i> Bookmark</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#wifi" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Wifi <i class="fas fa-wifi"></i></a>
+                    <a class="nav-link" data-toggle="pill" href="#wifi" role="tab"><i class="fas fa-wifi"></i> Wifi</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#paypal" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Paypal <i class="fab fa-paypal"></i></a>
+                    <a class="nav-link" data-toggle="pill" href="#paypal" role="tab"><i class="fab fa-paypal"></i> Paypal</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#bitcoin" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Bitcoin <i class="fab fa-bitcoin"></i></a>
+                    <a class="nav-link" data-toggle="pill" href="#bitcoin" role="tab"><i class="fab fa-bitcoin"></i> Bitcoin</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#twofa" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">2FA <i class="fa fa-key"></i></a>
+                    <a class="nav-link" data-toggle="pill" href="#twofa" role="tab"><i class="fa fa-key"></i> 2FA</a>
                   </li>
                 </ul>
             </div>
@@ -92,5 +92,5 @@
                     </div>
                 </div>
               </div>
-    </div><!-- /.card -->
+    </div><!-- /.qr-tabs-card -->
 </fieldset>
