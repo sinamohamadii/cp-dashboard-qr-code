@@ -15,7 +15,9 @@
   <link rel="stylesheet" href="<?php echo asset_url('plugins/daterangepicker/daterangepicker.css'); ?>">
   <!-- Overlay Scrollbar -->
   <link type="text/css" href="<?php echo asset_url('plugins/overlayScrollbars/css/OverlayScrollbars.css'); ?>" rel="stylesheet"/>
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- Google Font: Inter (Caesar Dashboard) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Custom Styles -->
   <link rel="stylesheet" href="<?php echo asset_url('dist/css/custom.css'); ?>">

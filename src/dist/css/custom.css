@@ -1,9 +1,394 @@
+/* ===== Caesar Dashboard Theme ===== */
 
-
-.bulk-action-wrapper {
-    padding: 10px 0;
+/* ===== CSS Variables ===== */
+:root {
+  --primary-color: #F7CC40;
+  --primary-color-dark: #D4AF37;
+  --primary-color-light: #FFF6DE;
+  
+  --color-base-10: #191919;
+  --color-base-20: #262626;
+  --color-base-30: #333333;
+  --color-base-40: #4C4C4D;
+  --color-base-50: #59595A;
+  --color-base-60: #656567;
+  --color-base-70: #98989A;
+  --color-base-80: #E6E6E6;
+  --color-base-90: #F7F7F7;
+  
+  --color-success: #2AB454;
+  --color-error: #DC2626;
+  --color-warning: #E18C26;
+  --color-info: #2C55FB;
+  --color-info-light: #28AEF3;
+  --color-white: #FFFFFF;
 }
+
+/* ===== Base Typography ===== */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Caesar Sidebar ===== */
+.caesar-sidebar {
+  width: 260px;
+  min-width: 260px;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-right: 1px solid var(--color-base-80);
+  background: var(--color-white);
+  padding-bottom: 24px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  z-index: 1038;
+}
+
+.sidebar-top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.sidebar-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 43px;
+  width: 100%;
+}
+
+.sidebar-title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: var(--color-base-10);
+  margin: 0;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.nav-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-section-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.nav-section-title p {
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  width: 90%;
+  color: var(--color-base-10);
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.nav-divider {
+  background-color: var(--color-base-80);
+  width: 80%;
+  height: 1px;
+  margin-bottom: 32px;
+  margin-top: 4px;
+}
+
+/* ===== Nav Link Styles ===== */
+.caesar-sidebar .nav-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  width: 90%;
+  justify-content: flex-start;
+  padding: 16px;
+  border-radius: 2px 0 0 2px;
+  color: var(--color-base-70);
+  text-decoration: none;
+  transition: all 0.15s ease;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.caesar-sidebar .nav-link:hover {
+  background-color: var(--color-base-90);
+  color: var(--color-base-50);
+  text-decoration: none;
+}
+
+.caesar-sidebar .nav-link.active {
+  background-color: var(--color-base-60);
+  color: var(--color-white);
+}
+
+.caesar-sidebar .nav-link.active svg path,
+.caesar-sidebar .nav-link.active svg rect {
+  stroke: var(--color-white);
+}
+
+.caesar-sidebar .nav-link.active svg path[fill="currentColor"] {
+  fill: var(--color-white);
+}
+
+.caesar-sidebar .nav-link svg {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+/* Nav link with chevron */
+.caesar-sidebar .nav-link .nav-chevron {
+  margin-left: auto;
+  opacity: 0.6;
+}
+
+/* Logout link */
+.caesar-sidebar .nav-link-logout {
+  color: var(--color-error);
+}
+
+.caesar-sidebar .nav-link-logout:hover {
+  background-color: rgba(220, 38, 38, 0.08);
+  color: var(--color-error);
+}
+
+/* ===== Submenu Styles ===== */
+.nav-submenu {
+  width: 90%;
+  margin-left: auto;
+  background: var(--color-base-60);
+  border-radius: 0 0 0 4px;
+}
+
+.nav-submenu-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-submenu-item:last-child {
+  border-bottom: none;
+}
+
+.nav-submenu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.nav-submenu-toggle:hover {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.05);
+  text-decoration: none;
+}
+
+.nav-submenu-toggle .submenu-chevron {
+  transition: transform 0.2s ease;
+}
+
+.nav-submenu-item.expanded .nav-submenu-toggle .submenu-chevron {
+  transform: rotate(180deg);
+}
+
+/* Submenu children (hidden by default) */
+.nav-submenu-children {
+  display: none;
+  padding-bottom: 8px;
+}
+
+.nav-submenu-item.expanded .nav-submenu-children {
+  display: block;
+}
+
+.nav-submenu-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px 10px 20px;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  transition: all 0.15s ease;
+}
+
+.nav-submenu-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+}
+
+.nav-submenu-link.active {
+  color: var(--color-white);
+  font-weight: 500;
+}
+
+.submenu-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.nav-submenu-link.active .submenu-dot {
+  background: var(--primary-color);
+}
+
+/* ===== Sidebar Bottom ===== */
+.sidebar-bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== Caesar Header ===== */
+.caesar-header {
+  height: 112px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-base-80);
+  padding: 0 24px;
+  background: var(--color-white);
+}
+
+.caesar-header .page-title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  margin: 0;
+  color: var(--color-base-10);
+}
+
+.header-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-icon-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--color-base-80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-base-90);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  color: var(--color-base-60);
+}
+
+.header-icon-btn:hover {
+  background-color: var(--color-base-80);
+  text-decoration: none;
+  color: var(--color-base-40);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--color-base-10);
+  margin: 0;
+}
+
+.user-role {
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--color-base-70);
+  text-transform: capitalize;
+  margin: 0;
+}
+
+/* ===== Main Content Layout Adjustments ===== */
+/* Push content to accommodate fixed sidebar */
+body.caesar-layout {
+  background: var(--color-base-90);
+}
+
+body.caesar-layout .wrapper {
+  margin-left: 260px;
+  min-height: 100vh;
+}
+
+body.caesar-layout .caesar-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+body.caesar-layout .content-wrapper {
+  margin-left: 0 !important;
+  background: var(--color-base-90);
+  min-height: calc(100vh - 112px);
+}
+
+body.caesar-layout .main-footer {
+  margin-left: 0;
+  background: var(--color-white);
+  border-top: 1px solid var(--color-base-80);
+}
+
+/* Hide AdminLTE elements we don't need */
+body.caesar-layout .main-sidebar,
+body.caesar-layout .main-header.navbar,
+body.caesar-layout .control-sidebar {
+  display: none !important;
+}
+
+/* ===== Legacy Styles ===== */
+.bulk-action-wrapper {
+  padding: 10px 0;
+}
+
 #err-msg {
-    display: none;
-    color: red;
+  display: none;
+  color: red;
 }

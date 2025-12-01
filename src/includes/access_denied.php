@@ -23,68 +23,119 @@ if (isset($user)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Access Denied - QR Code Generator</title>
+    <title>Access Denied - Caesar Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo absolute_url('plugins/fontawesome-free/css/all.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo absolute_url('dist/css/adminlte.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo absolute_url('dist/css/custom.css'); ?>">
     <style>
+        :root {
+            --primary-color: #F7CC40;
+            --color-base-10: #191919;
+            --color-base-50: #59595A;
+            --color-base-70: #98989A;
+            --color-base-80: #E6E6E6;
+            --color-base-90: #F7F7F7;
+            --color-error: #DC2626;
+            --color-white: #FFFFFF;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background: var(--color-base-90);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 24px;
         }
+        
         .access-denied-card {
-            background: white;
+            background: var(--color-white);
             border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            padding: 3rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            border: 1px solid var(--color-base-80);
+            padding: 48px;
             text-align: center;
-            max-width: 480px;
-            width: 90%;
+            max-width: 460px;
+            width: 100%;
         }
+        
         .access-denied-icon {
-            font-size: 4rem;
-            color: #dc3545;
-            margin-bottom: 1.5rem;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(220, 38, 38, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
         }
+        
+        .access-denied-icon i {
+            font-size: 32px;
+            color: var(--color-error);
+        }
+        
         .access-denied-title {
-            font-size: 1.75rem;
+            font-size: 24px;
             font-weight: 700;
-            color: #343a40;
-            margin-bottom: 1rem;
+            color: var(--color-base-10);
+            margin-bottom: 12px;
         }
+        
         .access-denied-message {
-            color: #6c757d;
-            font-size: 1rem;
+            color: var(--color-base-50);
+            font-size: 15px;
             line-height: 1.6;
-            margin-bottom: 2rem;
+            margin-bottom: 24px;
         }
+        
         .access-denied-user {
-            background: #f8f9fa;
+            background: var(--color-base-90);
             border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
-            color: #495057;
+            padding: 14px 16px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: var(--color-base-50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
+        
+        .access-denied-user strong {
+            color: var(--color-base-10);
+        }
+        
         .btn-back {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--primary-color);
             border: none;
-            color: white;
-            padding: 0.75rem 2rem;
+            color: var(--color-base-10);
+            padding: 12px 24px;
             border-radius: 8px;
             font-weight: 600;
+            font-size: 14px;
             text-decoration: none;
-            display: inline-block;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.15s ease;
         }
+        
         .btn-back:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-            color: white;
+            background: #D4AF37;
+            color: var(--color-base-10);
             text-decoration: none;
+            transform: translateY(-1px);
         }
     </style>
 </head>
@@ -100,15 +151,14 @@ if (isset($user)) {
         </p>
         <?php if (!empty($userName)): ?>
         <div class="access-denied-user">
-            <i class="fas fa-user mr-2"></i>
+            <i class="fas fa-user"></i>
             Logged in as: <strong><?php echo htmlspecialchars($userName); ?></strong>
         </div>
         <?php endif; ?>
         <a href="<?php echo getLoginUrl(); ?>" class="btn-back">
-            <i class="fas fa-arrow-left mr-2"></i>
+            <i class="fas fa-arrow-left"></i>
             Back to Dashboard
         </a>
     </div>
 </body>
 </html>
-

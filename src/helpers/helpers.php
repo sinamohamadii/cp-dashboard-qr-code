@@ -161,3 +161,85 @@ function base_url() {
         );
     }
 }
+
+/**
+ * Get URL for the main dashboard (external Payload CMS dashboard)
+ * @param string $path Optional path to append (e.g., 'analytics', 'marketing')
+ * @return string Full URL to the dashboard page
+ */
+function dashboard_url($path = '') {
+    $base = DASHBOARD_BASE_URL;
+    if ($path === '') {
+        return $base . '/dashboard';
+    }
+    return $base . '/dashboard/' . ltrim($path, '/');
+}
+
+/**
+ * Get logout URL for the main dashboard
+ * @return string Full URL to the logout endpoint
+ */
+function logout_url() {
+    return DASHBOARD_BASE_URL . '/logout';
+}
+
+/**
+ * Check if user has a specific permission
+ * @param string $permission The permission key to check
+ * @return bool
+ */
+function hasPermission($permission) {
+    global $payloadUser;
+    return isset($payloadUser['permissions'][$permission]) 
+        && $payloadUser['permissions'][$permission] === true;
+}
+
+/**
+ * Get all allowed permissions as array of keys
+ * @return array
+ */
+function getAllowedPermissions() {
+    global $payloadUser;
+    $allowed = [];
+    if (isset($payloadUser['permissions']) && is_array($payloadUser['permissions'])) {
+        foreach ($payloadUser['permissions'] as $key => $value) {
+            if ($value === true) {
+                $allowed[] = $key;
+            }
+        }
+    }
+    return $allowed;
+}
+
+/**
+ * Get user display name
+ * @return string
+ */
+function getUserDisplayName() {
+    global $payloadUser;
+    if (!$payloadUser) return '';
+    
+    $firstName = $payloadUser['firstName'] ?? '';
+    $lastName = $payloadUser['lastName'] ?? '';
+    $name = trim($firstName . ' ' . $lastName);
+    
+    if (empty($name)) {
+        return $payloadUser['email'] ?? 'User';
+    }
+    return $name;
+}
+
+/**
+ * Get user role display string
+ * @return string
+ */
+function getUserRole() {
+    global $payloadUser;
+    if (!$payloadUser || !isset($payloadUser['roles'])) return '';
+    
+    $roles = $payloadUser['roles'];
+    if (is_array($roles) && count($roles) > 0) {
+        return ucfirst($roles[0]);
+    }
+    return '';
+}

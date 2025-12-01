@@ -25,15 +25,13 @@ $total_pages = $db->totalPages;
     <head>
     <?php include './includes/head.php'; ?>
     </head>
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="caesar-layout">
+    <!-- Caesar Sidebar -->
+    <?php include './includes/sidebar.php'; ?>
+    
 <div class="wrapper">
-  <!-- Navbar -->
-  <?php include './includes/navbar.php'; ?>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <?php include './includes/sidebar.php'; ?>
-    <!-- /.Main Sidebar Container -->
+    <!-- Caesar Header -->
+    <?php include './includes/navbar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

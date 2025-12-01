@@ -40,3 +40,7 @@ define('PAYLOAD_COOKIE_NAME', getenv('PAYLOAD_COOKIE_NAME') ?: 'payload-token');
 // Internal API URL for server-to-server requests from Docker container
 // Use host.docker.internal to reach host machine from inside Docker on Windows/Mac
 define('PAYLOAD_API_BASE_URL', getenv('PAYLOAD_API_BASE_URL') ?: 'http://host.docker.internal:3100');
+
+// Dashboard base URL for external links (main Payload dashboard)
+// This is the URL users see in browser, not the internal API URL
+define('DASHBOARD_BASE_URL', rtrim(PAYLOAD_LOGIN_URL, '/'));
