@@ -128,25 +128,36 @@ class Qrcode {
 
         $data_to_db['qrcode'] = $data_to_db['filename'].'.'.$old_qrcode["format"];
 
-        if(!file_exists(SAVED_QRCODE_DIRECTORY.$data_to_db['filename'].'.'.$old_qrcode["format"]) || $data_to_db['filename'] == $input_data["old_filename"]){
+        // Compare raw input filename (not htmlspecialchars'd) with old_filename for consistency
+        $current_filename = $input_data['filename'] ?? '';
+        $old_filename = $input_data['old_filename'] ?? '';
+        $filename_unchanged = ($current_filename == $old_filename);
+        
+        $target_file = SAVED_QRCODE_DIRECTORY . $data_to_db['filename'] . '.' . $old_qrcode["format"];
+        
+        if (!file_exists($target_file) || $filename_unchanged) {
             $db->where('id', $input_data["id"]);
             $stat = $db->update($this->table, $data_to_db);
             
-            try{
-                rename(SAVED_QRCODE_DIRECTORY.$old_qrcode["qrcode"], SAVED_QRCODE_DIRECTORY.$data_to_db['filename'].'.'.$old_qrcode["format"]);
-            }
-            catch(Exception $e){
-                $this->failure($e->getMessage());
+            // Only rename if filename actually changed
+            if (!$filename_unchanged && $stat) {
+                try {
+                    rename(SAVED_QRCODE_DIRECTORY.$old_qrcode["qrcode"], $target_file);
+                }
+                catch(Exception $e) {
+                    $this->failure($e->getMessage());
+                }
             }
         }
-        else
+        else {
             $this->failure('You cannot edit a qr code with an existing name on the server!');
+        }
         
-        if ($stat){
+        if ($stat) {
             $this->success('Qr code updated successfully!');
         }
         else {
-            $this->failure('Insert failed: ' . $db->getLastError());
+            $this->failure('Update failed: ' . $db->getLastError());
         }
     }
 

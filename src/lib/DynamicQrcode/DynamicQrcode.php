@@ -57,10 +57,13 @@ class DynamicQrcode {
     public function addQrcode($input_data) {
         $data_to_db['filename'] = htmlspecialchars($input_data['filename'], ENT_QUOTES, 'UTF-8');
         $data_to_db['created_at'] = date('Y-m-d H:i:s');
-        $data_to_db['link'] = htmlspecialchars($input_data['link'], ENT_QUOTES, 'UTF-8');
+        // Don't use htmlspecialchars on URLs - it breaks FILTER_VALIDATE_URL in read.php
+        // URLs with & become &amp; which is invalid
+        $data_to_db['link'] = filter_var($input_data['link'], FILTER_SANITIZE_URL);
         $data_to_db['format'] = $input_data['format'];
         $data_to_db['identifier'] = randomString(rand(5,8));
         $data_to_db['qrcode'] = $data_to_db['filename'].'.'.$data_to_db['format'];
+        $data_to_db['state'] = 'enable'; // Default to enabled so redirect works
 
         $data_to_qrcode = READ_PATH.$data_to_db['identifier'];
         
@@ -73,8 +76,9 @@ class DynamicQrcode {
      */
     public function editQrcode($input_data) {
         $data_to_db['filename'] = htmlspecialchars($input_data['filename'], ENT_QUOTES, 'UTF-8');
-        $data_to_db['created_at'] = date('Y-m-d H:i:s');
-        $data_to_db['link'] = htmlspecialchars($input_data['link'], ENT_QUOTES, 'UTF-8');
+        $data_to_db['updated_at'] = date('Y-m-d H:i:s');
+        // Don't use htmlspecialchars on URLs - it breaks FILTER_VALIDATE_URL in read.php
+        $data_to_db['link'] = filter_var($input_data['link'], FILTER_SANITIZE_URL);
         $data_to_db['state'] = $input_data['state'];
 
         $this->qrcode_instance->editQrcode($input_data, $data_to_db);

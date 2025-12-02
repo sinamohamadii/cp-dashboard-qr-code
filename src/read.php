@@ -1,6 +1,12 @@
 <?php
 include 'config/config.php';
 
+// Prevent caching so URL changes take effect immediately
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Cache-Control: post-check=0, pre-check=0', false);
+header('Pragma: no-cache');
+header('Expires: Thu, 01 Jan 1970 00:00:00 GMT');
+
 if ($_SERVER["REQUEST_METHOD"] !== "GET" || !isset($_GET['id'])) {
     die("Method not allowed. Check id parameter");
 }
