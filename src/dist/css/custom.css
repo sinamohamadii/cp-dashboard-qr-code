@@ -376,7 +376,7 @@ body.caesar-layout {
 
 body.caesar-layout .wrapper {
   margin-left: 18vw;
-  width: 80.95vw;
+  width: calc(100% - 18vw);
   min-height: 100vh;
 }
 
