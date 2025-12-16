@@ -2,6 +2,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <base href="<?php echo htmlspecialchars(base_href(), ENT_QUOTES, 'UTF-8'); ?>">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="<?php echo asset_url('dist/img/favicon.png'); ?>">
+  <link rel="shortcut icon" type="image/png" href="<?php echo asset_url('dist/img/favicon.png'); ?>">
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?php echo asset_url('plugins/fontawesome-free/css/all.min.css'); ?>">
